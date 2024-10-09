@@ -1,0 +1,107 @@
+CREATE DATABASE `formulario-gustavo`;
+USE `formulario-gustavo`;
+
+ALTER TABLE `listaencomenda`
+MODIFY `data` DATETIME NOT NULL;
+
+ALTER TABLE `listaentrada`
+MODIFY `data` DATETIME NOT NULL;
+
+CREATE TABLE `autorizados` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `documento` VARCHAR(45) NOT NULL,
+  `destino` VARCHAR(45) NOT NULL,
+  `motivo` VARCHAR(45) NOT NULL,
+  `veiculo` VARCHAR(45) NOT NULL,
+  `placa` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `listaentrada` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `documento` VARCHAR(45) NOT NULL,
+  `destino` VARCHAR(45) NOT NULL,
+  `motivo` VARCHAR(45) NOT NULL,
+  `veiculo` VARCHAR(45) NOT NULL,
+  `placa` VARCHAR(45) NOT NULL,
+  `data` DATE NOT NULL,	
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `listaencomenda` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `status` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `apartamento` VARCHAR(45) NOT NULL,
+  `data` DATE NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `usuarios2` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `telefone` VARCHAR(45) NOT NULL,
+  `sexo` VARCHAR(45) NOT NULL,
+  `data_nasc` DATE NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `estado` VARCHAR(45) NOT NULL,
+  `endereco` VARCHAR(45) NOT NULL,
+  `senha` INT(11) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
+INSERT INTO `autorizados` (`nome`, `documento`, `destino`, `motivo`, `veiculo`, `placa`) VALUES
+('João Silva', '12345678901', 'Apto 101', 'Negócios', 'Fusca', 'ABC1D23'),
+('Maria Oliveira', '23456789012', 'Apto 102', 'Visita', 'Civic', 'BCD2E34'),
+('Pedro Santos', '34567890123', 'Apto 103', 'Trabalho', 'Fiesta', 'CDE3F45'),
+('Ana Souza', '45678901234', 'Apto 104', 'Saúde', 'Golf', 'DEF4G56'),
+('Carlos Lima', '56789012345', 'Apto 105', 'Lazer', 'Palio', 'EFG5H67'),
+('Fernanda Costa', '67890123456', 'Apto 106', 'Reunião', 'Uno', 'FGH6I78'),
+('Juliana Mendes', '78901234567', 'Apto 107', 'Viagem', 'Hilux', 'GHI7J89');
+
+INSERT INTO `listaentrada` (`nome`, `documento`, `destino`, `motivo`, `veiculo`, `placa`, `data`) VALUES
+('Luís Andrade', '78945612301', 'Apto 201', 'Negócios', 'Corolla', 'HIJ8K90', '2023-11-20 10:15:00'),
+('Carla Gomes', '89056723412', 'Apto 202', 'Visita', 'Ranger', 'IJK9L01', '2023-11-20 11:30:00'),
+('Marcos Pereira', '90167834523', 'Apto 203', 'Trabalho', 'F150', 'JKL0M12', '2023-11-20 09:45:00'),
+('Tatiane Silva', '01278945634', 'Apto 204', 'Saúde', 'Cruze', 'KLM1N23', '2023-11-20 14:00:00'),
+('Vítor Almeida', '12389056745', 'Apto 205', 'Lazer', 'S10', 'LMN2O34', '2023-11-20 16:20:00'),
+('Raquel Martins', '23490167856', 'Apto 206', 'Reunião', 'Toro', 'MNO3P45', '2023-11-20 13:10:00'),
+('Eduardo Ferreira', '34501278967', 'Apto 207', 'Viagem', 'Tucson', 'NOP4Q56', '2023-11-20 15:05:00');
+
+INSERT INTO `listaencomenda` (`status`, `nome`, `apartamento`, `data`) VALUES
+('Entregue', 'Lucas Silva', 'Apto 301', '2024-09-01 09:00:00'),
+('Pendente', 'Juliana Costa', 'Apto 302', '2024-09-02 10:15:00'),
+('Em trânsito', 'Roberta Lima', 'Apto 303', '2024-09-03 12:30:00'),
+('Entregue', 'Bruno Almeida', 'Apto 304', '2024-09-04 14:45:00'),
+('Pendente', 'Ana Paula', 'Apto 305', '2024-09-05 16:00:00'),
+('Em trânsito', 'Mateus Ferreira', 'Apto 306', '2024-09-06 11:00:00'),
+('Entregue', 'Isabela Martins', 'Apto 307', '2024-09-07 13:30:00');
+
+
+INSERT INTO `usuarios2` (`nome`, `email`, `telefone`, `sexo`, `data_nasc`, `cidade`, `estado`, `endereco`, `senha`) VALUES
+('Lucas Oliveira', 'lucas@gmail.com', '11987654321', 'Masculino', '1985-05-15', 'São Paulo', 'SP', 'Rua A, 123', 123456),
+('Fernanda Silva', 'fernanda@yahoo.com', '21987654321', 'Feminino', '1990-06-20', 'Rio de Janeiro', 'RJ', 'Avenida B, 456', 654321),
+('Carlos Souza', 'carlos@hotmail.com', '31987654321', 'Masculino', '1982-07-25', 'Belo Horizonte', 'MG', 'Praça C, 789', 112233),
+('Juliana Lima', 'julia@gmail.com', '41987654321', 'Feminino', '1988-08-30', 'Curitiba', 'PR', 'Rua D, 101', 445566),
+('Marcos Pereira', 'marcos@outlook.com', '51987654321', 'Masculino', '1975-09-10', 'Fortaleza', 'CE', 'Avenida E, 202', 778899),
+('Isabela Costa', 'isabela@gmail.com', '61987654321', 'Feminino', '1992-10-15', 'Recife', 'PE', 'Rua F, 303', 990011),
+('Eduardo Santos', 'eduardo@live.com', '71987654321', 'Masculino', '1986-11-20', 'Porto Alegre', 'RS', 'Praça G, 404', 223344),
+('Vinicius', 'vinicius@gmail.com', '71987654321', 'Masculino', '1986-11-20', 'Porto Alegre', 'RS', 'Praça G, 404', 123);
+('Eduardo Santos', 'Vinicius', '71987654321', 'Masculino', '1986-11-20', 'Porto Alegre', 'RS', 'Praça G, 404', 123),
+
+ style="background: linear-gradient(to bottom, #0c6c91, rgb(20,147,220));"
+
+criar entradas
+
+criar o script do banco de dados criando a database usando criando as tabelas e os inserts
+
+estilizar botoes
+
+colocar logo
+
+concerta pesquisa
+
+concerta edição

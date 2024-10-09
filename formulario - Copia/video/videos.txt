@@ -1,0 +1,27 @@
+sair
+bem vindo
+entrada
+encomendas
+autorizados
+pesquisar
+resgistrar
+
+nome
+documento 
+destino
+motivo
+veiculo
+placa
+data
+
+status
+nome
+apartamento
+data
+
+nome
+documento
+destino
+motivo
+veiculo
+placa
